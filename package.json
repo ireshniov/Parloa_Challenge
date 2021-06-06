@@ -1,0 +1,45 @@
+{
+    "name": "parloa-challenge",
+    "version": "1.0.0",
+    "description": "Parloa Challenge",
+    "main": "./dist/index.js",
+    "scripts": {
+        "test": "jest",
+        "coverage": "npm run test -- --coverage",
+        "build:dist": "rimraf dist && tsc --build",
+        "start": "npm run build:dist && node --gc_interval=100 ./dist/index.js",
+        "start:dev": "ts-node ./src/index.ts",
+        "prettier": "npm run prettier:base -- .",
+        "prettier:base": "prettier --ignore-path .eslintignore --write",
+        "format": "npm run prettier && npm run lint -- --fix",
+        "format:base": "npm run lint:base -- --fix",
+        "lint": "npm run lint:base -- './**/**.{ts,tsx,js,json}'",
+        "lint:base": "npm run lint:config:check && eslint",
+        "lint:config:check": "eslint-config-prettier src/index.ts"
+    },
+    "author": "Igor Reshniov",
+    "license": "ISC",
+    "dependencies": {
+        "class-transformer": "^0.4.0",
+        "class-validator": "^0.13.1",
+        "rimraf": "^3.0.2",
+        "split": "^1.0.1",
+        "ts-node": "^10.0.0",
+        "typescript": "^4.3.2"
+    },
+    "devDependencies": {
+        "@types/jest": "^26.0.23",
+        "@types/node": "^15.6.2",
+        "@typescript-eslint/eslint-plugin": "^4.26.0",
+        "@typescript-eslint/parser": "^4.26.0",
+        "eslint": "^7.28.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-import-resolver-typescript": "^2.4.0",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.4.0",
+        "jest": "^27.0.4",
+        "prettier": "^2.3.1",
+        "ts-jest": "^27.0.2"
+    }
+}
